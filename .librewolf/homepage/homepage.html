@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homepage</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #eeeeee;
+      font-family: "Geist Mono", monospace;
+      font-size: 12px;
+    }
+    .outer-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      margin-right: 20px; /* space between columns */
+    }
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* space between poem and keybind blocks */
+    }
+    .block {
+      background-color: #ffffe0; /* light yellow */
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .poem {
+      text-align: center;
+      line-height: 1.5; /* single spacing */
+    }
+    .keybinds {
+      color: rgba(30, 30, 120, 1);
+      line-height: 1.25; /* half spacing */
+    }
+    .keybinds table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+    .keybinds td {
+      padding: 0px 5px;
+      vertical-align: middle;
+      text-align: left;
+    }
+    .painting img {
+      display: block;
+      max-width: 300px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="outer-container">
+    <div class="left-column">
+      <div class="block painting">
+        <img src="monet_parasol.jpg" alt="La Femme à l'ombrelle — Madame Monet et son fils. Claude Monet, painted 1875, oil on canvas.">
+      </div>
+    </div>
+    <div class="right-column">
+      <div class="block poem">
+        Ah Sun-flower! weary of time,<br>
+        Who countest the steps of the Sun:<br>
+        Seeking after that sweet, golden clime<br>
+        Where the travellers journey is done.<br><br>
+        Where the Youth pined away with desire,<br>
+        And the pale Virgin shrouded in snow:<br>
+        Arise from their graves and aspire,<br>
+        Where my Sun-flower wishes to go.
+      </div>
+      <div class="block keybinds">
+        <table>
+          <tr>
+            <td class="key">⇧⌥1</td>
+            <td class="value">work-container</td>
+          </tr>
+          <tr>
+            <td class="key">⇧⌥2</td>
+            <td class="value">school-container</td>
+          </tr>
+          <tr>
+            <td class="key">⇧⌥3</td>
+            <td class="value">personal-container</td>
+          </tr>
+          <tr>
+            <td class="key">⇧⌥4</td>
+            <td class="value">browsing-container</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
