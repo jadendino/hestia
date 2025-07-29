@@ -8,24 +8,6 @@ YELLOW='\033[1;33m'
 BOLD='\033[1m'
 NC='\033[0m'
 
-spinner() {
-    local pid=$1
-    local delay=0.1
-    local spinstr='⠏⠇⠧⠦⠴⠼⠸⠹⠙⠋'
-    while kill -0 "$pid" 2>/dev/null; do
-        for i in $(seq 0 ${#spinstr}); do
-            printf "\r${YELLOW}${spinstr:$i:1}${NC} $2"
-            sleep "$delay"
-        done
-    done
-    wait "$pid"
-    if [ $? -eq 0 ]; then
-        printf "\r${GREEN}✅${NC} $2 ${GREEN}Done!${NC}\n"
-    else
-        printf "\r${RED}❌${NC} $2 ${RED}Failed!${NC}\n"
-    fi
-}
-
 if [ $# -eq 0 ]; then
     echo -e "${RED}❌ Usage:${NC} $0 <HOST>"
     echo -e "${YELLOW}Example:${NC} $0 mule"
@@ -49,18 +31,13 @@ fi
 
 if ! command -v brew &>/dev/null; then
     echo -e "${YELLOW}📦 Installing Homebrew...${NC}"
-    read -p "Proceed? (y/n) " -n 1 -r
+    read -p "Proceed? (y/n) " -r
     echo ""
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
         echo -e "${RED}❌ Installation aborted.${NC}"
         exit 1
     fi
-    if ! command -v curl &>/dev/null; then
-        echo -e "${RED}❌ curl is required but not found. Install it manually.${NC}"
-        exit 1
-    fi
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" &
-    spinner $! "Installing Homebrew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     
     if [[ $(uname -m) == "arm64" ]]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -77,7 +54,9 @@ if [ ! -f "flake.nix" ]; then
 fi
 
 echo -e "${YELLOW}🔧 Running darwin-rebuild switch... (will need sudo permission)${NC}"
-sudo nix run nix-darwin -- switch --flake ".#$HOST"
+sudo \
+  NIX_CONFIG="experimental-features = nix-command flakes pipe-operators" \
+  nix run nix-darwin -- switch --flake ".#$HOST"
 
 echo -e "${BOLD}${GREEN}🎉 Initial system setup complete for host: $HOST${NC}"
-echo -e "${YELLOW}💡 You may need to restart your terminal or source your shell configuration.${NC}"
+echo -e "${YELLOW}💡 You may need to restart your terminal and log out for changes to be reflected.${NC}"

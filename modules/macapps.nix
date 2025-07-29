@@ -15,5 +15,6 @@
   homebrew.masApps = {
     "Wipr 2" = 1662217862;
     "Final Cut Pro" = 424389933;
+    "Logic Pro" = 34148309;
   };
 }

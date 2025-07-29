@@ -46,6 +46,8 @@
     "com.apple.springing.enabled" = true;
     "com.apple.springing.delay" = 0.2;
 
+    "com.apple.swipescrolldirection" = false;
+
     NSDocumentSaveNewDocumentsToCloud = false;
   };
 
@@ -78,6 +80,19 @@
     mru-spaces   = false;
 
     orientation = "left";
+    
+    tilesize = 48;
+
+    persistent-apps = [
+      { app = "/System/Applications/Launchpad.app"; }
+      { app = "/Applications/LibreWolf.app"; }
+      { app = "/Applications/Ghostty.app"; }
+      { app = "/System/Applications/Mail.app"; }
+      { app = "/System/Applications/Calendar.app"; }
+      { app = "/System/Applications/Reminders.app"; }
+      { app = "/System/Applications/Notes.app"; }
+      { app = "/System/Applications/Settings.app"; }
+    ];
   };
 
   system.defaults.finder = {
