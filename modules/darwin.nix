@@ -1,4 +1,7 @@
-{
+{ lib, ... }:
+let
+  inherit (lib) enabled;
+in {
   # Source:
   # https://github.com/nix-darwin/nix-darwin/tree/master/modules/system/defaults
   #
@@ -12,6 +15,15 @@
       allowIdentifierForAdvertising     = false;
       forceLimitAdTracking              = true;
       personalizedAdsMigrated           = false;
+    };
+
+    "com.apple.desktopservices" = {
+      DSDontWriteNetworkStores = true;
+      DSDontWriteUSBStores = true;
+    };
+
+    "com.apple.finder" = {
+      FXArrangeGroupViewBy = "Name";
     };
   };
 
@@ -91,14 +103,21 @@
       { app = "/System/Applications/Calendar.app"; }
       { app = "/System/Applications/Reminders.app"; }
       { app = "/System/Applications/Notes.app"; }
-      { app = "/System/Applications/Settings.app"; }
+      { app = "/System/Applications/System Settings.app"; }
     ];
   };
 
   system.defaults.finder = {
     AppleShowAllFiles = true;
     AppleShowAllExtensions = true;
+
+    NewWindowTarget = "Home";
+
+    _FXShowPosixPathInTitle = true;
+    _FXSortFoldersFirst = true;
+
     ShowPathbar = true;
+    ShowStatusBar = true;
     CreateDesktop = false;
   };
 
@@ -111,5 +130,9 @@
 
   system.defaults.trackpad = {
     FirstClickThreshold = 0;
+  };
+
+  security.pam.services.sudo_local = enabled {
+    touchIdAuth = true;
   };
 }

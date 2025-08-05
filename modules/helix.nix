@@ -1,14 +1,11 @@
-{ lib, pkgs, ...}:
+{ lib, ...}:
 let
   inherit (lib) enabled;
-  
-  package = pkgs.helix;
 in {
   # environment.systemPackages = [ package ];
 
   home-manager.sharedModules = [{
     programs.helix = enabled {
-      package = package;
       settings.editor = {
         auto-completion = false;
         bufferline = "multiple";

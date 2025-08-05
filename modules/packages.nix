@@ -14,7 +14,6 @@
     texlab
     uv
     yazi
-    zoxide
     nil
     ffmpeg
     yt-dlp

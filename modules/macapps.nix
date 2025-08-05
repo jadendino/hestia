@@ -2,7 +2,6 @@
   homebrew.casks = [
     "libreoffice"
     "librewolf"
-    "rectangle"
     "skim"
     "temurin"
     "tor-browser"
@@ -10,11 +9,13 @@
     # "affinity-designer"
     # "affinity-photo"
     # "affinity-publisher"
+    # "krita"
+    # "musescore"
   ];
 
   homebrew.masApps = {
     "Wipr 2" = 1662217862;
     "Final Cut Pro" = 424389933;
-    "Logic Pro" = 34148309;
+    "Logic Pro" = 634148309;
   };
 }
