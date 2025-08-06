@@ -15,7 +15,7 @@
       Bluetooth = 24;
       Display = 24;
       FocusModes = 24;
-      NowPlaying = 2;
+      NowPlaying = 8;
       Sound = 18;
       
       Battery = 6;
