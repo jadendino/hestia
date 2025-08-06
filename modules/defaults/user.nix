@@ -61,6 +61,7 @@
     enable-spring-load-actions-on-all-items = true;
     
     expose-animation-duration = 0.1;
+    expose-group-apps = true;
 
     launchanim = false;
     mineffect = "scale";
