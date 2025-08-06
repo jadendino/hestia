@@ -1,27 +1,14 @@
-{ lib, ... }:
-let
-  inherit (lib) enabled;
-in {
+{ ... }:
+
+{
+  # user preferences
+  # i.e., the ones you see when running
+  #       `$ defaults read`
+
   # Source:
   # https://github.com/nix-darwin/nix-darwin/tree/master/modules/system/defaults
-  #
-  # TODO: it might be wise to convert everything into a custom pref,
-  # this abstraction layer between nix-darwin and the preferences doesn't
-  # seem to useful. TBD.
 
-  system.defaults.CustomSystemPreferences = {
-    "com.apple.AdLib" = {
-      allowApplePersonalizedAdvertising = false;
-      allowIdentifierForAdvertising     = false;
-      forceLimitAdTracking              = true;
-      personalizedAdsMigrated           = false;
-    };
-
-    "com.apple.desktopservices" = {
-      DSDontWriteNetworkStores = true;
-      DSDontWriteUSBStores = true;
-    };
-
+  system.defaults.CustomUserPreferences = {
     "com.apple.finder" = {
       FXArrangeGroupViewBy = "Name";
     };
@@ -67,15 +54,6 @@ in {
     ShowSeconds = true;
   };
 
-  system.defaults.controlcenter = {
-    BatteryShowPercentage = true;
-    Sound = false;
-    Bluetooth = false;
-    AirDrop = false;
-    Display = false;
-    FocusModes = false;
-    NowPlaying = true;
-  };
   
   system.defaults.dock = {
     autohide = true;
@@ -105,6 +83,11 @@ in {
       { app = "/System/Applications/Notes.app"; }
       { app = "/System/Applications/System Settings.app"; }
     ];
+
+    wvous-bl-corner = 1;
+    wvous-br-corner = 1;
+    wvous-tl-corner = 1;
+    wvous-tr-corner = 1;
   };
 
   system.defaults.finder = {
@@ -123,16 +106,10 @@ in {
 
   system.defaults.hitoolbox.AppleFnUsageType = "Change Input Source";
 
-  system.defaults.loginwindow = {
-    GuestEnabled = false;
-    DisableConsoleAccess = true;
-  };
 
   system.defaults.trackpad = {
     FirstClickThreshold = 0;
   };
 
-  security.pam.services.sudo_local = enabled {
-    touchIdAuth = true;
-  };
 }
+

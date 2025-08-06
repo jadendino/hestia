@@ -6,11 +6,8 @@
     "temurin"
     "tor-browser"
     "vscodium"
-    # "affinity-designer"
-    # "affinity-photo"
-    # "affinity-publisher"
-    # "krita"
-    # "musescore"
+    "krita"
+    "musescore"
   ];
 
   homebrew.masApps = {
