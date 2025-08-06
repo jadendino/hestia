@@ -12,6 +12,7 @@
       ShowFullURLInSmartSearchField = 1;
       UniversalSearchEnabled = 0;
       UseHTTPSOnly = 1;
+      WBSCloudExtensionSyncEnabled = 0;
     };
   };
 }

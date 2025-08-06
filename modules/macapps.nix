@@ -11,7 +11,7 @@
   ];
 
   homebrew.masApps = {
-    "Wipr 2" = 1662217862;
+    "uBlock Origin Lite" = 6745342698;
     "Final Cut Pro" = 424389933;
     "Logic Pro" = 634148309;
   };
