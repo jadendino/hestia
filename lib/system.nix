@@ -18,6 +18,7 @@ inputs: self: super: let
     inherit inputs;
 
     # keys = import ../keys.nix;
+    dots = ../dotfiles;
     lib  = self;
   };
 in {

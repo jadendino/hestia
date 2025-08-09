@@ -13,6 +13,7 @@
       UniversalSearchEnabled = 0;
       UseHTTPSOnly = 1;
       WBSCloudExtensionSyncEnabled = 0;
+      PrivateBrowsingRequiresAuthentication = 0;
     };
   };
 }

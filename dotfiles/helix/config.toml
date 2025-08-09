@@ -1,0 +1,15 @@
+[editor]
+auto-completion = false
+bufferline = "multiple"
+color-modes = true
+cursorline = true
+idle-timeout = 0
+line-number = "relative"
+shell = ["zsh", "-c"]
+
+[editor.file-picker]
+hidden = false
+
+[editor.soft-wrap]
+enable = true
+

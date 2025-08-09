@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  unfree.allowedNames = [ "claude-code" ];
+  
   environment.systemPackages = with pkgs; [
     eza
     fd
@@ -17,5 +19,6 @@
     nil
     ffmpeg
     yt-dlp
+    claude-code
   ];
 }
